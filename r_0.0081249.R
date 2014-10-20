@@ -20,3 +20,21 @@ dim(train_with_labels)
 test <- as.data.frame(fread("data/test.csv"))
 
 # Categorical values encoding
+train_with_labels[train_with_labels=='Yes'] <- 1
+train_with_labels[train_with_labels=='No'] <- 0
+train_with_labels[train_with_labels=='nan'] <- NA
+test[test=='Yes'] <- 1
+test[test=='No'] <- 0
+test[test=='nan'] <- NA
+
+for(p in names(train_with_labels)){
+            if(substr(p, 1, 1)=="x"){
+                column_type
+                # LOL expression
+                if(column_type){
+
+                	}else{
+                		
+                	}
+            }
+        }
