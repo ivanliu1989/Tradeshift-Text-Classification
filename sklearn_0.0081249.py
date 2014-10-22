@@ -1,4 +1,4 @@
-data_dir = 'Tradeshift-Text-Classification/'
+data_dir = 'C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/'
 
 ## Big Data -- Sample Data!
 import pandas as pd
@@ -67,7 +67,7 @@ for name in train_with_labels.columns :
             test[name] = map(str, test[name])
 
             names_categorical.append(name)
-            print name, len(np.unique(train_with_labels[name]))
+            print (name, len(np.unique(train_with_labels[name])))
         else :
             X_numerical.append(train_with_labels[name].fillna(-999))
             X_test_numerical.append(test[name].fillna(-999))
@@ -78,7 +78,7 @@ X_test_numerical = np.column_stack(X_test_numerical)
 X_sparse = vec.fit_transform(train_with_labels[names_categorical].T.to_dict().values())
 X_test_sparse = vec.transform(test[names_categorical].T.to_dict().values())
 
-print X_numerical.shape, X_sparse.shape, X_test_numerical.shape, X_test_sparse.shape
+print (X_numerical.shape, X_sparse.shape, X_test_numerical.shape, X_test_sparse.shape)
 
 X_numerical = np.nan_to_num(X_numerical)
 X_test_numerical = np.nan_to_num(X_test_numerical)
@@ -112,10 +112,10 @@ X_numerical_base, X_numerical_meta, X_sparse_base, X_sparse_meta, y_base, y_meta
 X_meta = [] 
 X_test_meta = []
 
-print "Build meta"
+print ("Build meta")
 
 for i in range(y_base.shape[1]) :
-    print i
+    print (i)
     
     y = y_base[:, i]
     if len(np.unique(y)) == 2 : 
@@ -132,7 +132,7 @@ for i in range(y_base.shape[1]) :
 X_meta = np.column_stack(X_meta)
 X_test_meta = np.column_stack(X_test_meta)
 
-print X_meta.shape, X_test_meta.shape
+print (X_meta.shape, X_test_meta.shape)
 
 ### Here train meta level and get predictions for test set
 p_test = []
@@ -150,7 +150,7 @@ for i in range(y_base.shape[1]) :
         constant_pred = np.mean(list(y_base[:, i]) + list(y_meta[:, i]))
         
         predicted = np.ones(X_test_meta.shape[0]) * constant_pred
-        print "%d is constant like: %f" % (i, constant_pred)
+        print ("%d is constant like: %f" % (i, constant_pred))
     else :
         rf = RandomForestClassifier(n_estimators=30, n_jobs = 1)
         rf.fit(np.hstack([X_meta, X_numerical_meta]), y)
@@ -162,7 +162,7 @@ for i in range(y_base.shape[1]) :
         rf = RandomForestClassifier(n_estimators=30, n_jobs = 1)
         scores = cross_val_score(rf, np.hstack([X_meta, X_numerical_meta]), y, cv = 4, n_jobs = 1, scoring = log_loss_scorer)
 
-        print i, 'RF log-loss: %.4f ± %.4f, mean = %.6f' %(np.mean(scores), np.std(scores), np.mean(predicted))
+        print (i, 'RF log-loss: %.4f ± %.4f, mean = %.6f' %(np.mean(scores), np.std(scores), np.mean(predicted)))
 
     
     p_test.append(
