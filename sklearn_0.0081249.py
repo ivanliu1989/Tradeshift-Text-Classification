@@ -1,4 +1,4 @@
-data_dir = 'C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/'
+data_dir = '/Users/ivan/Work_directory/TTC/data'
 
 ## Big Data -- Sample Data!
 import pandas as pd
