@@ -22,7 +22,8 @@ del train
 ## Try to make something useful
 import pandas as pd
 
-data_dir = 'tradeshift/'
+data_dir = 'C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/'
+
 train_sample = pd.read_csv(data_dir + 'train_sample.csv')
 labels = pd.read_csv(data_dir + 'trainLabels.csv')
 labels.columns
