@@ -1,11 +1,12 @@
+setwd('C:\\Users\\Ivan.Liuyanfeng\\Desktop\\Data_Mining_Work_Space\\Tradeshift-Text-Classification')
 rm(list=ls(all=TRUE));gc(reset=TRUE);par(mfrow=c(1,1))
-sink("TradeShift.log", split = T)
+sink("TradeShift2.log", split = T)
 
 ## This code block is to install a particular version of H2O
 # START
-if ("package:h2o" %in% search()) { detach("package:h2o", unload=TRUE) }
-if ("h2o" %in% rownames(installed.packages())) { remove.packages("h2o") }
-install.packages("h2o", repos=(c("http://s3.amazonaws.com/h2o-release/h2o/master/1555/R", getOption("repos")))) #choose a build here
+# if ("package:h2o" %in% search()) { detach("package:h2o", unload=TRUE) }
+# if ("h2o" %in% rownames(installed.packages())) { remove.packages("h2o") }
+# install.packages("h2o", repos=(c("http://s3.amazonaws.com/h2o-release/h2o/master/1555/R", getOption("repos")))) #choose a build here
 # END
 
 # Fetch the latest nightly build using Jo-fai Chow's package
@@ -23,10 +24,10 @@ library(stringr)
 h2oServer <- h2o.init(nthreads = -1, max_mem_size = '8g')
 
 ## Import data
-path_train <- "/Users/ivan/Work_directory/TTC/data/train.csv"
-path_trainLabels <- "/Users/ivan/Work_directory/TTC/data/trainLabels.csv"
-path_test <- "/Users/ivan/Work_directory/TTC/data/test.csv"
-path_submission <- "/Users/ivan/Work_directory/TTC/data/sampleSubmission.csv"
+path_train <- "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/train.csv"
+path_trainLabels <- "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/trainLabels.csv"
+path_test <- "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/test.csv"
+path_submission <- "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/sampleSubmission.csv"
 
 train_hex <- h2o.importFile(h2oServer, path = path_train)
 trainLabels_hex <- h2o.importFile(h2oServer, path = path_trainLabels)
@@ -43,7 +44,7 @@ targets <- labels[-1] #remove ID
 validate = T #whether to compute CV error on train/validation split (or n-fold), potentially with grid search
 submitwithfulldata = T #whether to use full training dataset for submission (if FALSE, then the validation model(s) will make test set predictions)
 
-ensemble_size <- 2 # more -> lower variance
+ensemble_size <- 5 # more -> lower variance
 seed0 = 1337
 reproducible_mode = T # Set to TRUE if you want reproducible results, e.g. for final Kaggle submission if you think you'll win :)  Note: will be slower for DL
 
@@ -88,7 +89,7 @@ for (resp in 1:length(targets)) {
                                  classification = T,
                                  #type = "BigData", ntree = 50, depth = 30, mtries = 20, nbins = 50, #ensemble_size 1: training LL: 0.002863313 validation LL: 0.009463341 LB: 0.094373
                                  #type = "BigData", ntree = 100, depth = 30, mtries = 30, nbins = 100, #ensemble_size 1: training LL: 0.002892511 validation LL: 0.008592581
-                                 type = "fast", ntree = c(10,20), depth = c(5,10), mtries = 10, nbins = 10, #demo for grid search
+                                 type = "fast", ntree = c(10,20,100), depth = c(5,10,30), mtries = 30, nbins = 100, #demo for grid search
                                  seed = seed0 + resp*ensemble_size + n
                 )
             
@@ -227,7 +228,7 @@ if (validate) {
 
 print(summary(final_submission))
 submission <- read.csv(path_submission)
-#reshape predictions into 1D
+reshape predictions into 1D
 fs <- t(as.matrix(final_submission))
 dim(fs) <- c(prod(dim(fs)),1)
 submission[,2] <- fs #replace 0s with actual predictions
