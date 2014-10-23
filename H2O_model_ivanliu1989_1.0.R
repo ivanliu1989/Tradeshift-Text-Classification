@@ -1,3 +1,4 @@
+rm(list=ls(all=TRUE));gc(reset=TRUE);par(mfrow=c(1,1))
 sink("TradeShift.log", split = T)
 
 ## This code block is to install a particular version of H2O
@@ -22,10 +23,10 @@ library(stringr)
 h2oServer <- h2o.init(nthreads = -1, max_mem_size = '8g')
 
 ## Import data
-path_train <- "/Users/arno/kaggle_tradeshift/data/train.csv"
-path_trainLabels <- "/Users/arno/kaggle_tradeshift/data/trainLabels.csv"
-path_test <- "/Users/arno/kaggle_tradeshift/data/test.csv"
-path_submission <- "/Users/arno/kaggle_tradeshift/data/sampleSubmission.csv"
+path_train <- "/Users/ivan/Work_directory/TTC/data/train.csv"
+path_trainLabels <- "/Users/ivan/Work_directory/TTC/data/trainLabels.csv"
+path_test <- "/Users/ivan/Work_directory/TTC/data/test.csv"
+path_submission <- "/Users/ivan/Work_directory/TTC/data/sampleSubmission.csv"
 
 train_hex <- h2o.importFile(h2oServer, path = path_train)
 trainLabels_hex <- h2o.importFile(h2oServer, path = path_trainLabels)
