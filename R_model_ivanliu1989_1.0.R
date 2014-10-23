@@ -20,3 +20,19 @@ save(train,test,labels, file='data/raw_data.RData')
 #################
 ## Subset Data ##
 #################
+train_sample_index <- createDataPartition(train$id,p=0.1,list=F)
+train_sample <- train[train_sample_index,]
+dim(train_sample)
+train_sample_labels <- merge(x=train_sample,y=labels,by.x="id", by.y="id")
+names(train_sample_labels)
+
+#################################
+## Categorical values encoding ##
+#################################
+train_sample_labels[train_sample_labels=='YES'] <- 1
+train_sample_labels[train_sample_labels=='NO'] <- 0
+train_sample_labels[train_sample_labels=='nan'] <- NA
+test[test=='YES'] <- 1
+test[test=='NO'] <- 0
+test[test=='nan'] <- NA
+head(train_sample_labels); head(test)
