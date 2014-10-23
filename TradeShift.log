@@ -1,0 +1,5 @@
+Warning in install.packages :
+  cannot remove prior installation of package ‘h2o’
+
+The downloaded binary packages are in
+	C:\Users\Ivan.Liuyanfeng\AppData\Local\Temp\RtmpCAAO5W\downloaded_packages
