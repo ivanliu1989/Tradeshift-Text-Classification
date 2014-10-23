@@ -133,7 +133,6 @@ loss = 0.
 loss_y14 = log(1. - 10**-15)
 
 for ID, x, y in data(train, label):
-
     # get predictions and train on all labels
     for k in K:
         p = predict(x, w[k])
