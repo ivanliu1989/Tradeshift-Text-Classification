@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Oct 24 09:16:03 2014
+
+@author: ivan
+"""
+
 '''
            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
                    Version 2, December 2004
@@ -29,7 +36,7 @@ train = 'train.csv'  # path to training file
 label = 'trainLabels.csv'  # path to label file of training data
 test = 'test.csv'  # path to testing file
 
-D = 2 ** 28  # number of weights use for each model, we have 32 of them
+D = 2 ** 24  # number of weights use for each model, we have 32 of them
 alpha = .1   # learning rate for sgd optimization
 
 
@@ -49,13 +56,13 @@ def data(path, label_path=None):
         if t == 0:
             # create a static x,
             # so we don't have to construct a new x for every instance
-            x = [0] * 146
+            x = [0] * (146 + 46)
             if label_path:
                 label = open(label_path)
                 label.readline()  # we don't need the headers
             continue
         # parse x
-        for m, feat in enumerate(line.rstrip().split(',')):
+        for m, feat in enumerate(row = line.rstrip().split(',')):
             if m == 0:
                 ID = int(feat)
             else:
@@ -66,7 +73,12 @@ def data(path, label_path=None):
                 # note, the build in hash(), although fast is not stable,
                 #       i.e., same value won't always have the same hash
                 #       on different machines
-                x[m] = abs(hash(str(m) + '_' + feat)) % D
+                hash_cols = [3,4,34,35,61,64,65,91,94,95]
+                o = 146
+                for i in xrange(10):
+                  for j in xrange(i+1,10):
+                    t += 1
+                    x[o] = abs(hash(row[hash_cols[i]]+"_x_"+row[hash_cols[j]])) % D
         # parse y, if provided
         if label_path:
             # use float() to prevent future type casting, [1:] to ignore id
@@ -146,7 +158,7 @@ for ID, x, y in data(train, label):
         print('%s\tencountered: %d\tcurrent logloss: %f' % (
             datetime.now(), ID, (loss/33.)/ID))
 
-with open('./submission1234.csv', 'w') as outfile:
+with open('./submission24OCT2014.csv', 'w') as outfile:
     outfile.write('id_label,pred\n')
     for ID, x in data(test):
         for k in K:

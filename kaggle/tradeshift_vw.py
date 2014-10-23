@@ -9,20 +9,20 @@ import math
 from glob import glob
 
 # Data locations
-loc_train = "d:\\tradeshift\\train.csv"
-loc_test = "d:\\tradeshift\\test.csv"
-loc_labels = "d:\\tradeshift\\trainLabels.csv"
-loc_best = "d:\\tradeshift\\tintrgu.csv" # best submission
+loc_train = "/Users/ivan/Work_directory/TTC/data/train.csv"
+loc_test = "/Users/ivan/Work_directory/TTC/data/test.csv"
+loc_labels = "/Users/ivan/Work_directory/TTC/data/trainLabels.csv"
+loc_best = "/Users/ivan/Work_directory/TTC/data/tintrgu.csv" # best submission
 
-loc_model_prefix = "d:\\tradeshift\\model"
-loc_preds_prefix = "d:\\tradeshift\\preds"
+loc_model_prefix = "/Users/ivan/Work_directory/TTC/model"
+loc_preds_prefix = "/Users/ivan/Work_directory/TTC/preds"
 
 # Will be created
-loc_test_vw = "d:\\tradeshift\\test.vw"
-loc_train_vw = "d:\\tradeshift\\train_y33.vw"
-loc_train_vw_temp = "d:\\tradeshift\\train_yn_temp.vw" # used for relabelling
+loc_test_vw = "/Users/ivan/Work_directory/TTC/data/test.vw"
+loc_train_vw = "/Users/ivan/Work_directory/TTC/data/train_y33.vw"
+loc_train_vw_temp = "/Users/ivan/Work_directory/TTC/data/train_yn_temp.vw" # used for relabelling
 
-loc_kaggle_submission = "d:\\tradeshift\\k.csv"
+loc_kaggle_submission = "/Users/ivan/Work_directory/TTC/submission/k.csv"
 
 def load_data(loc_csv, nrows=0):
   print("\nLoading data at %s shaped:"%loc_csv)
