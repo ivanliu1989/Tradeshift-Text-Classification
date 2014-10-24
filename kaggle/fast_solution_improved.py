@@ -163,3 +163,4 @@ with open('./submission24OCT2014_improved.csv', 'w') as outfile:
                 outfile.write('%s_y14,0.0\n' % ID)
 
 print('Done, elapsed time: %s' % str(datetime.now() - start))
+# 0.010537
