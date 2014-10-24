@@ -31,9 +31,9 @@ test[test=='NO'] <- 0
 test[test==''] <- NaN
 table(test[,3])
 
-for(p in names(train_with_labels)){
-            if(substr(p, 1, 1)=="x"){
-                column_type
+for(name in names(train_with_labels)){
+            if(substr(name, 1, 1)=="x"){
+                column_type <- max(table(apply(train_with_labels[name],1, class))
                 # LOL expression
                 if(column_type){
 
