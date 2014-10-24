@@ -7,7 +7,7 @@ Created on Thu Oct 23 09:31:52 2014
 
 # Big Data -- Sample Data!
 import pandas as pd
-data_dir = '/Users/ivan/Work_directory/TTC/data/'
+data_dir = 'C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/'
 train = pd.read_csv(data_dir + 'train.csv')
 train.shape
 sample_size = 170000

@@ -1,3 +1,4 @@
+setwd('C:\\Users\\Ivan.Liuyanfeng\\Desktop\\Data_Mining_Work_Space\\Tradeshift-Text-Classification\\')
 setwd('/Users/ivan/Work_directory/TTC')
 library(data.table)
 rm(list=ls(all=TRUE));gc(reset=TRUE);par(mfrow=c(1,1))
@@ -12,20 +13,23 @@ dim(train_sample)
 write.csv(train_sample, 'data/train_sample.csv')
 
 ## Try to make something useful
-train_sample <- as.data.frame(fread("data/train_sample.csv"))
-labels <- as.data.frame(fread("data/trainLabels.csv"))
+train_sample <- as.data.frame(fread("train_sample.csv"))
+labels <- as.data.frame(fread("trainLabels.csv"))
 dim(labels)
 train_with_labels = merge(train_sample, labels, by = 'id')
 dim(train_with_labels)
-test <- as.data.frame(fread("data/test.csv"))
+test <- as.data.frame(fread("test.csv"))
 
 # Categorical values encoding
-train_with_labels[train_with_labels=='Yes'] <- 1
-train_with_labels[train_with_labels=='No'] <- 0
-train_with_labels[train_with_labels=='nan'] <- NA
-test[test=='Yes'] <- 1
-test[test=='No'] <- 0
-test[test=='nan'] <- NA
+mean(is.na(train_with_labels[,3]))
+train_with_labels[train_with_labels=='YES'] <- 1
+train_with_labels[train_with_labels=='NO'] <- 0
+train_with_labels[train_with_labels==''] <- NaN
+table(train_with_labels[,2])
+test[test=='YES'] <- 1
+test[test=='NO'] <- 0
+test[test==''] <- NaN
+table(test[,3])
 
 for(p in names(train_with_labels)){
             if(substr(p, 1, 1)=="x"){

@@ -88,8 +88,8 @@ for (resp in 1:length(targets)) {
                                  validation = valid,
                                  classification = T,
                                  #type = "BigData", ntree = 50, depth = 30, mtries = 20, nbins = 50, #ensemble_size 1: training LL: 0.002863313 validation LL: 0.009463341 LB: 0.094373
-                                 #type = "BigData", ntree = 100, depth = 30, mtries = 30, nbins = 100, #ensemble_size 1: training LL: 0.002892511 validation LL: 0.008592581
-                                 type = "fast", ntree = c(10,20,100), depth = c(5,10,30), mtries = 30, nbins = 100, #demo for grid search
+                                 type = "BigData", ntree = 500, depth = 30, mtries = 30, nbins = 100, #ensemble_size 1: training LL: 0.002892511 validation LL: 0.008592581
+                                 #type = "fast", ntree = c(500), depth = c(50), mtries = 50, nbins = 100, #demo for grid search
                                  seed = seed0 + resp*ensemble_size + n
                 )
             
@@ -172,7 +172,7 @@ for (resp in 1:length(targets)) {
             #p <- cvmodel@model$params   #If cvmodel is not a grid search model
         }
         else {
-            p = list(classification = T, type = "BigData", ntree=50, depth=30, mtries=20, nbins=50) #LB: 0.0093360
+            p = list(classification = T, type = "BigData", ntree=500, depth=50, mtries=50, nbins=100) #LB: 0.0093360
         }
         ## Build an ensemble model on full training data - should perform better than the CV model above
         for (n in 1:ensemble_size) {
@@ -232,5 +232,5 @@ reshape predictions into 1D
 fs <- t(as.matrix(final_submission))
 dim(fs) <- c(prod(dim(fs)),1)
 submission[,2] <- fs #replace 0s with actual predictions
-write.csv(submission, file = "./submission.csv", quote = F, row.names = F)
+write.csv(submission, file = "./submission_H2O.csv", quote = F, row.names = F)
 sink()
