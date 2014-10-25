@@ -9,17 +9,17 @@ import math
 from glob import glob
 
 # Data locations
-loc_train = "/Users/ivan/Work_directory/TTC/data/train.csv"
-loc_test = "/Users/ivan/Work_directory/TTC/data/test.csv"
-loc_labels = "/Users/ivan/Work_directory/TTC/data/trainLabels.csv"
-loc_best = "/Users/ivan/Work_directory/TTC/data/tintrgu.csv" # best submission
+loc_train = "H:/Machine Learning/Tradeshift-Text-Classification/Data/csv/train.csv"
+loc_test = "H:/Machine Learning/Tradeshift-Text-Classification/Data/csv/test.csv"
+loc_labels = "H:/Machine Learning/Tradeshift-Text-Classification/Data/csv/trainLabels.csv"
+loc_best = "H:/Machine Learning/Tradeshift-Text-Classification/preds/submission24OCT2014_improved.csv" # best submission
 
-loc_model_prefix = "/Users/ivan/Work_directory/TTC/model"
-loc_preds_prefix = "/Users/ivan/Work_directory/TTC/preds"
+loc_model_prefix = "H:/Machine Learning/Tradeshift-Text-Classification/Data/csv/model"
+loc_preds_prefix = "H:/Machine Learning/Tradeshift-Text-Classification/Data/csv/preds"
 
 # Will be created
 loc_test_vw = "/Users/ivan/Work_directory/TTC/data/test.vw"
-loc_train_vw = "/Users/ivan/Work_directory/TTC/data/train_y33.vw"
+loc_train_vw = "H:/Machine Learning/Tradeshift-Text-Classification/Data/csv/train_y33.vw"
 loc_train_vw_temp = "/Users/ivan/Work_directory/TTC/data/train_yn_temp.vw" # used for relabelling
 
 loc_kaggle_submission = "/Users/ivan/Work_directory/TTC/submission/k.csv"
@@ -128,4 +128,4 @@ if __name__ == "__main__":
   #Train and test VW now
   
   #Add the VW predictions to our best submission file
-  to_kaggle("d:\\tradeshift\\preds_y33.p.txt", loc_best, loc_kaggle_submission, y_nr=33)
+  to_kaggle("H:\\Machine Learning\\Tradeshift-Text-Classification\\preds\\preds_y33_0.059649.p.txt", loc_best, loc_kaggle_submission, y_nr=33)
