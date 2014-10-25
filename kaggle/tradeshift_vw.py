@@ -116,16 +116,16 @@ def to_kaggle(loc_preds, loc_best_sub, loc_out_sub, y_nr):
         
 if __name__ == "__main__":
   #Load labels, remove the id
-  #y = load_data(loc_labels)
-  #y = np.array(y.drop("id", axis=1))
-  #print(y.shape)
-  #print(np.sum(y, axis=0))
+  y = load_data(loc_labels)
+  y = np.array(y.drop("id", axis=1))
+  print(y.shape)
+  print(np.sum(y, axis=0))
   
   #Create train set for label y33, and a test set with dummy labels
-  #to_vw(loc_train, loc_train_vw, y, y_nr=33, train=True)
-  #to_vw(loc_test, loc_test_vw, y, train=False)
+  to_vw(loc_train, loc_train_vw, y, y_nr=33, train=True)
+  to_vw(loc_test, loc_test_vw, y, train=False)
   
   #Train and test VW now
   
   #Add the VW predictions to our best submission file
-  #to_kaggle("d:\\tradeshift\\preds_y33.p.txt", loc_best, loc_kaggle_submission, y_nr=33)
+  to_kaggle("d:\\tradeshift\\preds_y33.p.txt", loc_best, loc_kaggle_submission, y_nr=33)
