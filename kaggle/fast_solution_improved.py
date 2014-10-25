@@ -29,7 +29,7 @@ train = 'train.csv'  # path to training file
 label = 'trainLabels.csv'  # path to label file of training data
 test = 'test.csv'  # path to testing file
 
-D = 2 ** 24  # number of weights use for each model, we have 32 of them
+D = 2 ** 21  # number of weights use for each model, we have 32 of them
 alpha = .1   # learning rate for sgd optimization
 
 
