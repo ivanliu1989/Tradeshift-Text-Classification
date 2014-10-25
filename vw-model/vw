@@ -1,0 +1,34 @@
+./vw -d train_y33.vw --loss_function logistic -b 28 -l 0.7 -q hh -q hb -q hp -q hr -c -k --passes 3 -f model_y33.vw
+
+./vw -d test.vw -t -i model_y33.vw -p preds_y33.p.txt
+
+
+vw train_nw.vw -f data/model.vw --loss_function logistic -b 25 -l .15 -c --passes 5 -q cc -q ii -q ci --holdout_off --cubic iii --decay_learning_rate .8
+
+vw --holdout_off --cache_file data/train_cat_int.cache --loss_function logistic -b 29 --passes 6 -l 0.01 --nn 60 --power_t 0 -f data/nn60_l001_p6.mod
+
+vw -d train.vw -c -b 28 --link=logistic --loss_function logistic --passes 2 --holdout_off --ngram c3 --ngram n2 --skips n1 --ngram f2 --skips f1 --l2 7.12091e-09 -l 0.240971683207491 --initial_t 1.53478225382649 --decay_learning_rate 0.267332
+
+vw click4.TT.train.vw -k -c -f click.neu13.model.vw --loss_function logistic --passes 20 -l 0.15 -b 25 --nn 35 --holdout_period 50 --early_terminate 1
+
+ ./vowpalwabbit/vw ../xtrain4.vw -c -k -l 0.1 -b 29 --loss_function logistic -q cc -q ii -q ci --holdout_off -f xmodel.vw
+
+
+
+-q hh/hb/hp/hr /cc/ii/ci	Create and use quadratic features <-q :: would interact any combination of pairs of features> xy
+-c				Use a cache. The default is <data>
+-k				
+--holdout_off			Disable holdout validation for multiple pass learning
+--cubic iii			Is similar to -q but takes three letters as the argument
+--decay_learning_rate		Set decay factor for learning_rate between passes
+--nn				Use sigmoidal feedforward network with <k> hidden units
+--power_t			t power value
+--link
+--ngram c3/n2/f2		generate n grams
+--skips n1/f1			Generate skips in N grams. This in conjunction with the ngram tag can be used to generate generalized n-skip-k-gram.
+--l2				l_2 lambda (L2 regularization)
+--initial_t			initial t value
+--bfgs 				uses a batch optimizer based on LBFGS
+--hash arg               	how to hash the features. Available options: strings, all
+
+--ngram and --skip can be used to generate ngram features possibly with skips (a.k.a. don't cares). For example --ngram 2 will generate (unigram and) bigram features by creating new features from features that appear next to each other, and --ngram 2 --skip 1 will generate (unigram, bigram, and) trigram features plus trigram features where we don't care about the identity of the middle token.

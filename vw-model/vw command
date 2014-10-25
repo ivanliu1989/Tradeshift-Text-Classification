@@ -1,0 +1,5 @@
+./vw -d train_y33.vw --loss_function logistic -b 28 -l 0.7 -q hh -q hb -q hp -q hr -c -k --passes 3 -f model_y33.vw
+0.059641
+
+./vw -d train_y33.vw --loss_function logistic -b 28 -l 0.1 -q hh -q hb -q hp -q hr -c -k --passes 6 -f model_y33_2.vw --holdout_off --decay_learning_rate 0.3 --nn 60 --power_t 0
+0.022220
