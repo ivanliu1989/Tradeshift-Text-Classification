@@ -25,11 +25,11 @@ from math import log, exp, sqrt
 
 # parameters #################################################################
 
-train = 'train.csv'  # path to training file
-label = 'trainLabels.csv'  # path to label file of training data
-test = 'test.csv'  # path to testing file
+train = '/Users/ivan/Work_directory/TTC/Data/train.csv'  # path to training file
+label = '/Users/ivan/Work_directory/TTC/Data/trainLabels.csv'  # path to label file of training data
+test = '/Users/ivan/Work_directory/TTC/Data/test.csv'  # path to testing file
 
-D = 2 ** 21  # number of weights use for each model, we have 32 of them
+D = 2 ** 22  # number of weights use for each model, we have 32 of them
 alpha = .1   # learning rate for sgd optimization
 
 
@@ -202,7 +202,7 @@ for ID, x, y in data(train, label):
         print('%s\tencountered: %d\tcurrent logloss: %f' % (
             datetime.now(), ID, (loss/33.)/ID))
 
-with open('./submission24OCT2014_improved.csv', 'w') as outfile:
+with open('./submission27OCT2014_improved.csv', 'w') as outfile:
     outfile.write('id_label,pred\n')
     for ID, x in data(test):
         for k in K:
