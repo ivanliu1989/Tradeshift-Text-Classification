@@ -47,7 +47,7 @@
 # <codecell>
 
 import pandas as pd
-data_dir='../data/'
+data_dir='H:/Machine Learning/Tradeshift-Text-Classification/Data/'
 
 # <codecell>
 
@@ -86,11 +86,11 @@ del train
 
 import pandas as pd
 
-data_dir = '../data/'
+data_dir = 'H:/Machine Learning/Tradeshift-Text-Classification/Data/'
 
 # <codecell>
 
-train_sample = pd.read_csv(data_dir + 'train_sample.csv')
+train_sample = pd.read_csv(data_dir + 'train.csv')
 
 # <codecell>
 
@@ -310,7 +310,7 @@ save_predictions('quick_start.csv.gz', test['id'].values, p_test)
 
 # <codecell>
 
-!ls -l -h  quick_start*.csv.gz
+# !ls -l -h  quick_start*.csv.gz
 
 # <headingcell level=3>
 

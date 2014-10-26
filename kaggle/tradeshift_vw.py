@@ -22,7 +22,7 @@ loc_test_vw = "/Users/ivan/Work_directory/TTC/data/test.vw"
 loc_train_vw = "H:/Machine Learning/Tradeshift-Text-Classification/Data/csv/train_y33.vw"
 loc_train_vw_temp = "/Users/ivan/Work_directory/TTC/data/train_yn_temp.vw" # used for relabelling
 
-loc_kaggle_submission = "/Users/ivan/Work_directory/TTC/submission/k.csv"
+loc_kaggle_submission = "H:/Machine Learning/Tradeshift-Text-Classification/preds/k.csv"
 
 def load_data(loc_csv, nrows=0):
   print("\nLoading data at %s shaped:"%loc_csv)
@@ -122,7 +122,7 @@ if __name__ == "__main__":
   print(np.sum(y, axis=0))
   
   #Create train set for label y33, and a test set with dummy labels
-  to_vw(loc_train, loc_train_vw, y, y_nr=33, train=True)
+  to_vw(loc_train, loc_train_vw, y, y_nr=32, train=True)
   to_vw(loc_test, loc_test_vw, y, train=False)
   
   #Train and test VW now
