@@ -35,11 +35,11 @@ names_categorical = []
 
 train_with_labels.replace('YES', 1, inplace = True)
 train_with_labels.replace('NO', 0, inplace = True)
-#train_with_labels.replace('nan', np.NaN, inplace = True)
+train_with_labels.replace('nan', np.NaN, inplace = True)
 
 test.replace('YES', 1, inplace = True)
 test.replace('NO', 0, inplace = True)
-#test.replace('nan', np.NaN, inplace = True)
+test.replace('nan', np.NaN, inplace = True)
 
 
 for name in train_with_labels.columns :    
@@ -65,8 +65,8 @@ X_test_sparse = vec.transform(test[names_categorical].T.to_dict().values())
 
 print X_numerical.shape, X_sparse.shape, X_test_numerical.shape, X_test_sparse.shape
 
-#X_numerical = np.nan_to_num(X_numerical)
-#X_test_numerical = np.nan_to_num(X_test_numerical)
+X_numerical = np.nan_to_num(X_numerical)
+X_test_numerical = np.nan_to_num(X_test_numerical)
 
 from sklearn.externals import joblib
 
@@ -119,6 +119,7 @@ X_test_meta = np.column_stack(X_test_meta)
 
 print X_meta.shape, X_test_meta.shape
 
+##########
 # Here train meta level and get predictions for test set
 p_test = []
 
@@ -137,14 +138,14 @@ for i in range(y_base.shape[1]) :
         predicted = np.ones(X_test_meta.shape[0]) * constant_pred
         print "%d is constant like: %f" % (i, constant_pred)
     else :
-        rf = RandomForestClassifier(n_estimators=30, n_jobs = 16)
+        rf = RandomForestClassifier(n_estimators=500, n_jobs = 16)
         rf.fit(np.hstack([X_meta, X_numerical_meta]), y)
 
         predicted = rf.predict_proba(np.hstack([X_test_meta, X_test_numerical]))
 
         predicted = predicted[:, 1]
         
-        rf = RandomForestClassifier(n_estimators=30, n_jobs = 16)
+        rf = RandomForestClassifier(n_estimators=500, n_jobs = 16)
         scores = cross_val_score(rf, np.hstack([X_meta, X_numerical_meta]), y, cv = 4, n_jobs = 1, scoring = log_loss_scorer)
 
         print i, 'RF log-loss: %.4f ± %.4f, mean = %.6f' %(np.mean(scores), np.std(scores), np.mean(predicted))
