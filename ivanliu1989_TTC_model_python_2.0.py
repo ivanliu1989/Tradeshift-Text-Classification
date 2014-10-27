@@ -6,7 +6,7 @@ Created on Sun Oct 26 17:14:40 2014
 """
 import pandas as pd
 
-data_dir = 'H:/Machine Learning/Tradeshift-Text-Classification/Data/'
+data_dir = 'C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/'
 train_sample = pd.read_csv(data_dir + 'train.csv')
 labels = pd.read_csv(data_dir + 'trainLabels.csv')
 labels.columns
@@ -104,7 +104,7 @@ for i in range(y_base.shape[1]) :
     
     y = y_base[:, i]
     if len(np.unique(y)) == 2 : 
-        rf = RandomForestClassifier(n_estimators = 10, n_jobs = 16)
+        rf = RandomForestClassifier(n_estimators = 50, n_jobs = -1)
         rf.fit(X_numerical_base, y)
         X_meta.append(rf.predict_proba(X_numerical_meta))
         X_test_meta.append(rf.predict_proba(X_test_numerical))
@@ -138,14 +138,14 @@ for i in range(y_base.shape[1]) :
         predicted = np.ones(X_test_meta.shape[0]) * constant_pred
         print "%d is constant like: %f" % (i, constant_pred)
     else :
-        rf = RandomForestClassifier(n_estimators=500, n_jobs = 16)
+        rf = RandomForestClassifier(n_estimators=500, n_jobs = -1)
         rf.fit(np.hstack([X_meta, X_numerical_meta]), y)
 
         predicted = rf.predict_proba(np.hstack([X_test_meta, X_test_numerical]))
 
         predicted = predicted[:, 1]
         
-        rf = RandomForestClassifier(n_estimators=500, n_jobs = 16)
+        rf = RandomForestClassifier(n_estimators=500, n_jobs = -1)
         scores = cross_val_score(rf, np.hstack([X_meta, X_numerical_meta]), y, cv = 4, n_jobs = 1, scoring = log_loss_scorer)
 
         print i, 'RF log-loss: %.4f ± %.4f, mean = %.6f' %(np.mean(scores), np.std(scores), np.mean(predicted))
