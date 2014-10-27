@@ -28,7 +28,7 @@ loc_test_vw = "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshif
 loc_train_vw = "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/train_y31.vw"
 loc_train_vw_temp = "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/train_yn_temp.vw" # used for relabelling
 
-loc_kaggle_submission = "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/preds/preds_y33_interaction.csv"
+loc_kaggle_submission = "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/preds/preds_y33_holdout.csv"
 
 def load_data(loc_csv, nrows=0):
   print("\nLoading data at %s shaped:"%loc_csv)
@@ -134,4 +134,4 @@ if __name__ == "__main__":
   #Train and test VW now
   
   #Add the VW predictions to our best submission file
-  to_kaggle("C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/preds/preds_y33_interaction.p.txt", loc_best, loc_kaggle_submission, y_nr=33)
+  to_kaggle("C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/preds/preds_y33_holdout.p.txt", loc_best, loc_kaggle_submission, y_nr=33)
