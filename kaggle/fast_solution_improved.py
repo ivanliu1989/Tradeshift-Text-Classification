@@ -213,3 +213,4 @@ with open('./submission27OCT2014_improved.csv', 'w') as outfile:
 
 print('Done, elapsed time: %s' % str(datetime.now() - start))
 # 0.010537
+# 0.010238
