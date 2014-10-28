@@ -128,7 +128,7 @@ if __name__ == "__main__":
   print(np.sum(y, axis=0))
   
   #Create train set for label y33, and a test set with dummy labels
-  to_vw(loc_train, loc_train_vw, y, y_nr=32, train=True)
+  to_vw(loc_train, loc_train_vw, y, y_nr=33, train=True)
   to_vw(loc_test, loc_test_vw, y, train=False)
   
   #Train and test VW now
