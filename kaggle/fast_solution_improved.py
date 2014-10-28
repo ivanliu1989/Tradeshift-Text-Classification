@@ -202,7 +202,7 @@ for ID, x, y in data(train, label):
         print('%s\tencountered: %d\tcurrent logloss: %f' % (
             datetime.now(), ID, (loss/33.)/ID))
 
-with open('./submission27OCT2014_improved.csv', 'w') as outfile:
+with open('./submission28OCT2014_D23.csv', 'w') as outfile:
     outfile.write('id_label,pred\n')
     for ID, x in data(test):
         for k in K:
