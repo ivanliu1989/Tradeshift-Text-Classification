@@ -41,4 +41,4 @@
 
 ==decay_learning_rate==
 ./vw -d train_y33.vw --loss_function logistic -b 28 -l 0.7 -q hh -q hb -q hp -q hr -c -k --passes 3 -f model_y33_decay.vw --decay_learning_rate 0.9
-## 
+## 0.0595202 
