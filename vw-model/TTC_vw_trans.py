@@ -25,10 +25,10 @@ loc_preds_prefix = "/Users/ivan/Work_directory/TTC/Data/preds"
 
 # Will be created
 loc_test_vw = "/Users/ivan/Work_directory/TTC/Data/test.vw"
-loc_train_vw = "/Users/ivan/Work_directory/TTC/Data/train_y33.vw"
+loc_train_vw = "/Users/ivan/Work_directory/TTC/Data/train_y6.vw"
 loc_train_vw_temp = "/Users/ivan/Work_directory/TTC/Data/train_yn_temp.vw" # used for relabelling
 
-loc_kaggle_submission = "/Users/ivan/Work_directory/TTC/preds/vw_y33_improved.csv" ### vw_to_kaggle
+loc_kaggle_submission = "/Users/ivan/Work_directory/TTC/preds/vw_y33_6_improved.csv" ### vw_to_kaggle
 
 def load_data(loc_csv, nrows=0):
   print("\nLoading data at %s shaped:"%loc_csv)
@@ -128,10 +128,10 @@ if __name__ == "__main__":
   print(np.sum(y, axis=0))
   
   #Create train set for label y33, and a test set with dummy labels
-  to_vw(loc_train, loc_train_vw, y, y_nr=33, train=True)
+  to_vw(loc_train, loc_train_vw, y, y_nr=6, train=True)
   to_vw(loc_test, loc_test_vw, y, train=False)
   
   #Train and test VW now
   
   #Add the VW predictions to our best submission file
-  to_kaggle("/Users/ivan/Work_directory/TTC/Data/preds_y33_improved.p.txt", loc_best, loc_kaggle_submission, y_nr=33) ### vw_to_kaggle
+  to_kaggle("/Users/ivan/Work_directory/TTC/Data/preds_y33_improved.p.txt", loc_best, loc_kaggle_submission, y_nr=6) ### vw_to_kaggle
