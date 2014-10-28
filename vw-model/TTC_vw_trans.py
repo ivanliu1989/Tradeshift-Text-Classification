@@ -18,7 +18,7 @@ from glob import glob
 loc_train = "/Users/ivan/Work_directory/TTC/Data/train.csv"
 loc_test = "/Users/ivan/Work_directory/TTC/Data/test.csv"
 loc_labels = "/Users/ivan/Work_directory/TTC/Data/trainLabels.csv"
-loc_best = "/Users/ivan/Work_directory/TTC/preds/submission27OCT2014_improved.csv" # best submission
+loc_best = "/Users/ivan/Work_directory/TTC/submission/submission27OCT2014_D22.csv" # best submission ### vw_to_kaggle
 
 loc_model_prefix = "/Users/ivan/Work_directory/TTC/Data/model"
 loc_preds_prefix = "/Users/ivan/Work_directory/TTC/Data/preds"
@@ -28,7 +28,7 @@ loc_test_vw = "/Users/ivan/Work_directory/TTC/Data/test.vw"
 loc_train_vw = "/Users/ivan/Work_directory/TTC/Data/train_y33.vw"
 loc_train_vw_temp = "/Users/ivan/Work_directory/TTC/Data/train_yn_temp.vw" # used for relabelling
 
-loc_kaggle_submission = "/Users/ivan/Work_directory/TTC/preds/k.csv"
+loc_kaggle_submission = "/Users/ivan/Work_directory/TTC/preds/vw_y33_improved.csv" ### vw_to_kaggle
 
 def load_data(loc_csv, nrows=0):
   print("\nLoading data at %s shaped:"%loc_csv)
@@ -134,4 +134,4 @@ if __name__ == "__main__":
   #Train and test VW now
   
   #Add the VW predictions to our best submission file
-  to_kaggle("H:\\Machine Learning\\Tradeshift-Text-Classification\\preds\\preds_y33_0.059649.p.txt", loc_best, loc_kaggle_submission, y_nr=33)
+  to_kaggle("/Users/ivan/Work_directory/TTC/Data/preds_y33_improved.p.txt", loc_best, loc_kaggle_submission, y_nr=33) ### vw_to_kaggle
