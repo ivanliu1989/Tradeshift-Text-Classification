@@ -31,12 +31,12 @@
 
 ==holdout==
 ./vw -d train_y33.vw --loss_function logistic -b 28 -l 0.7 -q hh -q hb -q hp -q hr -c -k --passes 3 -f model_y33_holdout.vw --holdout_period 50
-##
+## 0.0586038
 
 
 ==nn==
 ./vw -d train_y33.vw --loss_function logistic -b 28 -l 0.7 -q hh -q hb -q hp -q hr -c -k --passes 3 -f model_y33_nn.vw --nn 60
-## 
+## 0.071436
 
 
 ==decay_learning_rate==
