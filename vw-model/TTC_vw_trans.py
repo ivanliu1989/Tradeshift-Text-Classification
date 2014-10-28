@@ -131,6 +131,10 @@ if __name__ == "__main__":
   to_vw(loc_train, loc_train_vw, y, y_nr=6, train=True)
   to_vw(loc_test, loc_test_vw, y, train=False)
   
+  #Relabel vw dataset
+  loc_train_relabel = "/Users/ivan/Work_directory/TTC/Data/train_y6.vw"
+  relabel_vw(loc_train_vw, loc_train_relabel, loc_labels, y, y_i = 6)
+  
   #Train and test VW now
   
   #Add the VW predictions to our best submission file
