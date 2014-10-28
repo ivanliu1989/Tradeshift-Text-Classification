@@ -29,15 +29,15 @@
 ## 0.0568124 (avg loss)
 
 ==holdout==
-./vw -d train_y33.vw --loss_function logistic -b 28 -l 0.7 -q hh -q hb -q hp -q hr -c -k --passes 3 -f model_y33_holdout.vw
- --holdout_period 50
+./vw -d train_y33.vw --loss_function logistic -b 28 -l 0.7 -q hh -q hb -q hp -q hr -c -k --passes 3 -f model_y33_holdout.vw --holdout_period 50
+##
 
 
 ==nn==
-./vw -d train_y33.vw --loss_function logistic -b 28 -l 0.7 -q hh -q hb -q hp -q hr -c -k --passes 3 -f model_y33_nn.vw
- --nn 60
+./vw -d train_y33.vw --loss_function logistic -b 28 -l 0.7 -q hh -q hb -q hp -q hr -c -k --passes 3 -f model_y33_nn.vw --nn 60
+## 
 
 
 ==decay_learning_rate==
-./vw -d train_y33.vw --loss_function logistic -b 28 -l 0.7 -q hh -q hb -q hp -q hr -c -k --passes 3 -f model_y33_decay.vw
- --decay_learning_rate 0.9
+./vw -d train_y33.vw --loss_function logistic -b 28 -l 0.7 -q hh -q hb -q hp -q hr -c -k --passes 3 -f model_y33_decay.vw --decay_learning_rate 0.9
+## 
