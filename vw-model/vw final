@@ -1,4 +1,5 @@
-vw -d train_y33.vw --loss_function logistic -b 28 -l 0.6 -q :: -c -k --passes 3 -f model_y33_improved.vw --holdout_period 50
-## 
+vw -d train_y33.vw --loss_function logistic -b 28 -l 0.6 -q :: -c -k --passes 3 -f model_y33_improved.vw --holdout_period 50 --decay_learning_rate 0.9
+## 0.055897 (y33)
+## (y5)
 
 vw -d test.vw -t -i model_y33_improved.vw -p preds_y33_improved.p.txt
