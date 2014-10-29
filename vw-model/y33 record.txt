@@ -25,3 +25,8 @@ vw -d train_y33.vw --loss_function logistic -b 28 -l 0.6 -q :: -c -k --passes 3 
 --adaptive 50
 --invariant 2.7
 none 2.5
+
+--exact_adaptive_norm and --adaptive turns on an individual learning rate for each feature. These learning rates are adjusted automatically according to a data-dependent schedule. These learning rates give an improvement when the data have many features, but they can be slightly slower especially when used in conjunction with options that cause examples to have many non-zero features such as -q and --ngram. Of the two --exact_adaptive_norm used to be recommended in the past, it is now the default so there's no need to specify it.
+
+--invariant                      use safe/importance aware updates
+                                 (on by default)
