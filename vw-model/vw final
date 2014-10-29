@@ -9,3 +9,31 @@ alias vw=/Users/ivan/Work_directory/vowpal_wabbit/vowpalwabbit/vw
 
 vw -d train_y33.vw --loss_function logistic -b 28 -l 0.3 -q :: -c -k --passes 20 -f model_y33_29OCT.vw --holdout_period 50 --decay_learning_rate 0.8 --early_terminate 5
 ## 
+
+vw -d train_y33.vw --loss_function logistic -b 28 -q :: -c -k --passes 10 -f model_y33_ex.vw --holdout_off --decay_learning_rate 0.9 --stage_poly --batch_sz 800000 --batch_sz_no_doubling --sched_exponent 1.96 --save_resume --l2 6e-8 --l1 1.2e-8 -l 0.1 --compressed --feature_mask model_y33_improved.vw --adaptive --invariant --power_t 0.5 -C
+## 
+
+
+
+
+--save_resume --l2 10e-8 --l1 1.3e-8 -l 0.007 -q m:
+--save_resume --feature_mask log_bin.model --l2 10e-8 --l1 0e-8  -l 0.005 -q m:
+--save_resume --feature_mask log_bin.model --l2 10e-8 --l1 1.3e-8 -l 0.007 -q m:
+
+--stage_poly --batch_sz 800000 --batch_sz_no_doubling --sched_exponent 1.96 --save_resume --l2 6e-8 --l1 1.2e-8 -l 0.007
+--stage_poly --batch_sz 4000000 --batch_sz_no_doubling --sched_exponent 2.3 --save_resume --l2 6e-8 --l1 1.2e-8 -l 0.007
+--stage_poly --batch_sz 7500000 --batch_sz_no_doubling --sched_exponent 2.5 --save_resume --l2 6e-8 --l1 1.2e-8 -l 0.007
+
+--loss_function logistic
+-b 27
+--passes %s --holdout_off -C 
+--adaptive --invariant --power_t 0.5
+-c --compressed -f log_bin.model -k
+
+'zcat %s | cut -f2 | %s -t -i log_bin.model -p %s --quiet'
+
+--stage_poly tells VW to maintain polynomial features: training examples are augmented with features obtained by producting together subsets (and even sub-multisets) of features. VW starts with the original feature set, and uses --batch_sz and (and --batch_sz_no_doubling if present) to determine when to include new features (otherwise, the feature set is held fixed), with --sched_exponent controlling the quantity of new features.
+
+--batch_sz arg2 (together with --batch_sz_no_doubling), on a single machine, causes three types of behaviors: arg2 = 0 means features are constructed at the end of every non-final pass, arg2 > 0 with --batch_sz_no_doubling means features are constructed every arg2 examples, and arg2 > 0 without --batch_sz_no_doubling means features are constructed when the number of examples seen so far is equal to arg2, then 2*arg2, 4*arg2, and so on. When VW is run on multiple machines, then the options are similar, except that no feature set updates occur after the first pass (so that features have more time to stabilize across multiple machines). The default setting is arg2 = 1000 (and doubling is enabled).
+
+--feature_mask Use existing regressor to determine which parameters may be updated
