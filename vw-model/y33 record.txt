@@ -25,7 +25,23 @@ vw -d train_y33.vw --loss_function logistic -b 28 -l 0.6 -q :: -c -k --passes 3 
 —-passes 20 -l 0.35
 ### 0.057347? ###
 
+======================================================================================================================================================
+—-passes 20 -l 0.4
+###  ###
 
+
+############## Optimal Settings ###################
+-l 0.4
+—-passes 10(20)
+—-loss_function logistic
+-b 28(29)
+-q ::
+-c
+-k
+—-holdout_off
+—-decay_learning_rate 0.9
+	—-feature_mask model.vw
+###################################################
 
 --adaptive 50
 --invariant 2.7
