@@ -134,5 +134,5 @@ if __name__ == "__main__":
   #Train and test VW now
   
   #Add the VW predictions to our best submission file
-  to_kaggle("C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/preds/preds_y33_l04_pass20_mask.p.txt", 
+  to_kaggle("C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/preds/preds_y33_l035_pass10_new.p.txt", 
             loc_best, loc_kaggle_submission, y_nr=33)
