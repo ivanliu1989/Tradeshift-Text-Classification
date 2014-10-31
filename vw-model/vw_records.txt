@@ -29,9 +29,9 @@
 —-passes 20 -l 0.4
 ###  ###
 
-1：0.0142934
+
 ############## Optimal Settings ###################
--l 0.4
+-l 0.35
 —-passes 10(20)
 —-loss_function logistic
 -b 28(29)
@@ -42,6 +42,12 @@
 —-decay_learning_rate 0.9
 	—-feature_mask model.vw
 ###################################################
+1：0.0142934
+
+
+
+
+
 
 --adaptive 50
 --invariant 2.7
