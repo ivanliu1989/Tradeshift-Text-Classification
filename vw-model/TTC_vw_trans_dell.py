@@ -25,10 +25,10 @@ loc_preds_prefix = "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Trad
 
 # Will be created
 loc_test_vw = "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/test.vw"
-loc_train_vw = "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/train_y32.vw"
+loc_train_vw = "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/train_y33.vw"
 loc_train_vw_temp = "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/train_yn_temp.vw" # used for relabelling
 
-loc_kaggle_submission = "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/preds/preds_y29_l02_p30.csv"
+loc_kaggle_submission = "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/preds/preds_y32_l02_p30.csv"
 
 def load_data(loc_csv, nrows=0):
   print("\nLoading data at %s shaped:"%loc_csv)
@@ -128,11 +128,11 @@ if __name__ == "__main__":
   print(np.sum(y, axis=0))
   
   #Create train set for label y33, and a test set with dummy labels
-  to_vw(loc_train, loc_train_vw, y, y_nr=32, train=True)
+  to_vw(loc_train, loc_train_vw, y, y_nr=33, train=True)
   to_vw(loc_test, loc_test_vw, y, train=False)
   
   #Train and test VW now
   
   #Add the VW predictions to our best submission file
-  to_kaggle("C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/preds/preds_y29_l02_p30.p.txt", 
-            loc_best, loc_kaggle_submission, y_nr=29)
+  to_kaggle("C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/preds/model_y32_l02_p30.p.txt", 
+            loc_best, loc_kaggle_submission, y_nr=32)
