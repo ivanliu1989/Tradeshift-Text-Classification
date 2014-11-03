@@ -11,7 +11,7 @@ label = '/Users/ivan/Work_directory/TTC/Data/trainLabels.csv'  # path to label f
 test = '/Users/ivan/Work_directory/TTC/Data/test.csv'  # path to testing file
 monitor = open('diag.out','w')
 
-D = 2 ** 23  # number of weights use for each model, we have 32 of them
+D = 2 ** 22  # number of weights use for each model, we have 32 of them
 alpha = .1   # learning rate for sgd optimization
 
 def is_number(s):
@@ -108,7 +108,7 @@ def data(path, label_path=None):
                     feat=str(round(float(feat),1))
                 x[m] = abs(murmur3_x86_32(str(m) + '_' + feat)) % D
         hash_cols = [3,4,34,35,61,64,65,91,94,95]
-        o = 145
+        o = 146
         for i in xrange(10):
             for j in xrange(i+1,10):
                 o += 1
