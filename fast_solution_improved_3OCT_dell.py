@@ -15,7 +15,6 @@ from math import log, exp, sqrt
 train = 'C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/train.csv'  # path to training file
 label = 'C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/trainLabels.csv'  # path to label file of training data
 test = 'C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/test.csv'  # path to testing file
-monitor = open('diag.out','w')
 
 D = 2 ** 22  # number of weights use for each model, we have 32 of them
 alpha = .1   # learning rate for sgd optimization
@@ -200,9 +199,9 @@ while (lastLoss - thisLoss) > 0.000001:
 
         # print out progress, so that we know everything is working
         if ID % 100000 == 0:
-            monitor.write('%s\tencountered: %d\tcurrent logloss: %f\n' % (
+            print('%s\tencountered: %d\tcurrent logloss: %f\n' % (
                 datetime.now(), ID, (loss/33.)/ID))
-            monitor.flush()
+            
 
     thisLoss = (loss/33)/ID
     thisFile = './submission'+str(passNum)+'.csv'
@@ -215,8 +214,7 @@ while (lastLoss - thisLoss) > 0.000001:
                 if k == 12:
                     outfile.write('%s_y14,0.0\n' % ID)
 
-monitor.write('Done, elapsed time: %s\n' % str(datetime.now() - start))
-monitor.close()
+print('Done, elapsed time: %s' % str(datetime.now() - start))
 
 # 0.010537
 # 0.010238
