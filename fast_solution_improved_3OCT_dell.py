@@ -182,6 +182,32 @@ n = [[0.] * D if k != 13 else None for k in range(33)]
 
 loss = 0.
 loss_y14 = log(1. - 10**-15)
+
+for ID, x, y in data(train, label):
+    # get predictions and train on all labels
+    for k in K:
+        p = predict(x, w[k])
+        update(alpha, w[k], n[k], x, p, y[k])
+        loss += logloss(p, y[k])  # for progressive validation
+    loss += loss_y14  # the loss of y14, logloss is never zero
+
+    # print out progress, so that we know everything is working
+    if ID % 100000 == 0:
+        print('%s\tencountered: %d\tcurrent logloss: %f' % (
+            datetime.now(), ID, (loss/33.)/ID))
+
+with open('./submission05Nov2014_D22.csv', 'w') as outfile:
+    outfile.write('id_label,pred\n')
+    for ID, x in data(test):
+        for k in K:
+            p = predict(x, w[k])
+            outfile.write('%s_y%d,%s\n' % (ID, k+1, str(p)))
+            if k == 12:
+                outfile.write('%s_y14,0.0\n' % ID)
+
+print('Done, elapsed time: %s' % str(datetime.now() - start))
+
+
 passNum = 0
 lastLoss = 10.
 thisLoss = 1.

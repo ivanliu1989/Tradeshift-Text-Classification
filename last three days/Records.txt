@@ -1,0 +1,27 @@
+0.11
+2014-11-07 08:58:57.111596      encountered: 100000     current logloss: 0.022876
+2014-11-07 09:19:29.636415      encountered: 200000     current logloss: 0.018804
+2014-11-07 09:40:21.097147      encountered: 300000     current logloss: 0.016704
+
+0.09
+2014-11-06 22:35:42.819000 encountered: 100000 current logloss: 0.022562
+2014-11-06 22:53:03.314000 encountered: 200000 current logloss: 0.018596
+2014-11-06 23:09:54.368000 encountered: 300000 current logloss: 0.016544
+2014-11-06 23:30:01.700000 encountered: 400000 current logloss: 0.015256
+2014-11-07 00:06:06.673000 encountered: 500000 current logloss: 0.014274
+2014-11-07 02:07:23.274000 encountered: 600000 current logloss: 0.013552
+2014-11-07 06:33:37.359000 encountered: 700000 current logloss: 0.012992
+2014-11-07 13:05:23.204000 encountered: 800000 current logloss: 0.012509
+
+0.1
+2014-11-06 00:49:46.263000      encountered: 100000     current logloss: 0.022661
+2014-11-06 02:35:57.219000      encountered: 200000     current logloss: 0.018652
+2014-11-06 05:57:26.435000      encountered: 300000     current logloss: 0.016581
+2014-11-06 10:26:14.498000      encountered: 400000     current logloss: 0.015280
+2014-11-06 15:44:58.494000      encountered: 500000     current logloss: 0.014286
+2014-11-06 21:31:58.691000      encountered: 600000     current logloss: 0.013557
+2014-11-07 03:50:30.078000      encountered: 700000     current logloss: 0.012993
+2014-11-07 10:40:13.786000      encountered: 800000     current logloss: 0.012505
+2014-11-07 17:36:55.402000      encountered: 900000     current logloss: 0.012091
+
+0.13

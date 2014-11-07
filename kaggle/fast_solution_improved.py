@@ -25,11 +25,11 @@ from math import log, exp, sqrt
 
 # parameters #################################################################
 
-train = '/Users/ivan/Work_directory/TTC/Data/train.csv'  # path to training file
-label = '/Users/ivan/Work_directory/TTC/Data/trainLabels.csv'  # path to label file of training data
-test = '/Users/ivan/Work_directory/TTC/Data/test.csv'  # path to testing file
+train = 'C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/train.csv'  # path to training file
+label = 'C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/trainLabels.csv'  # path to label file of training data
+test = 'C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/test.csv'  # path to testing file
 
-D = 2 ** 23  # number of weights use for each model, we have 32 of them
+D = 2 ** 22  # number of weights use for each model, we have 32 of them
 alpha = .1   # learning rate for sgd optimization
 
 
