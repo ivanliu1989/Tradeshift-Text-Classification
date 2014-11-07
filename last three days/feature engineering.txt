@@ -1,0 +1,18 @@
+feature engineering:
+	1.categorial features less than 50000 distinct values are given one-hot encoding
+	2.others are hash encoding
+
+1st Purpose: generate features for GBDT
+	1.all numerical features are included
+	2.categorial features that appear more than 4m times are included
+	3.categorial features less than 10 times are transformed into a sepcial value.
+	4.previous model features are included
+
+2nd
+	1.grouping hierarchical features
+	2.detect collinear features
+
+4th
+	1.feature reduction by encoding all rare feature values with one code
+	2.features with less than 10K distinct values are one-hot encoded which are better than hashing
+	3.long tail features are log-transformed
