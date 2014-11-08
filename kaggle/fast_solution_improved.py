@@ -1,20 +1,3 @@
-'''
-           DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-                   Version 2, December 2004
-
-Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
-
-Everyone is permitted to copy and distribute verbatim or modified
-copies of this license document, and changing it is allowed as long
-as the name is changed.
-
-           DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-  TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
-
- 0. You just DO WHAT THE FUCK YOU WANT TO.
-'''
-
-
 from datetime import datetime
 from math import log, exp, sqrt
 
@@ -30,7 +13,7 @@ label = 'C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text
 test = 'C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/test.csv'  # path to testing file
 
 D = 2 ** 22  # number of weights use for each model, we have 32 of them
-alpha = .1   # learning rate for sgd optimization
+alpha = .12   # learning rate for sgd optimization
 
 
 # function, generator definitions ############################################
@@ -202,7 +185,7 @@ for ID, x, y in data(train, label):
         print('%s\tencountered: %d\tcurrent logloss: %f' % (
             datetime.now(), ID, (loss/33.)/ID))
 
-with open('./submission28OCT2014_D23.csv', 'w') as outfile:
+with open('./submission_D22_L012.csv', 'w') as outfile:
     outfile.write('id_label,pred\n')
     for ID, x in data(test):
         for k in K:
@@ -215,3 +198,4 @@ print('Done, elapsed time: %s' % str(datetime.now() - start))
 # 0.010537
 # 0.010238
 # 0.010000
+# 0.010131
