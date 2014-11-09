@@ -22,6 +22,6 @@ merge(data_7,data_3,by.x = data_7[,1],by.y=data_3[,1])
 combined_pred <- 0.75 * data_7[,2] + 0.25 * data_3[,2]
 cbind(head(combined_pred), head(data_7[,2]), head(data_3[,2]))
 new_pred <- cbind.data.frame(id_label = data_7[,1], pred = combined_pred)
-head(new_pred)
+head(new_pred, 50)
 
-write.table(new_pred, file='combined_pred.csv',sep = ',',col.names = T)
+write.table(new_pred, file='combined_pred.csv',sep = ',', row.names = F)
