@@ -26,8 +26,17 @@ head(new_pred, 50)
 
 write.table(new_pred, file='combined_pred_64_y33_6_12_7.csv',sep = ',', row.names = F)
 
+#########################
+### mannual adjustment ###
+#########################
 y33 <- new_pred[grep('y33',new_pred$id_label),]
 dim(y33)
 dim(new_pred)
+
 y33_0.99 <- y33[which(y33$pred >= 0.995),]
 dim(y33_0.99)
+
+y33_0.99_id <- c()
+for (i in 1:length(y33_0.99$id_label)){
+    y33_0.99_id <- c(y33_0.99_id, strsplit(as.character(y33_0.99$id_label[i]),'_')[[1]][1])
+}
