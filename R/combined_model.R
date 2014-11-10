@@ -19,7 +19,7 @@ data_3 <- data.frame(fread('quick_start.csv')) # 17987706
 # identical(head(data_7, 50),head(data_3, 50))
 # merge(data_7,data_3,by.x = data_7[,1],by.y=data_3[,1])
 
-combined_pred <- 0.5 * data_7[,2] + 0.5 * data_3[,2]
+combined_pred <- 0.6 * data_7[,2] + 0.4 * data_3[,2]
 cbind(head(combined_pred), head(data_7[,2]), head(data_3[,2]))
 new_pred <- cbind.data.frame(id_label = data_7[,1], pred = combined_pred)
 head(new_pred, 50)
