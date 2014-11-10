@@ -1,5 +1,6 @@
 Tradeshift-Text-Classification
 ==============================
+This solution is based on an 8GB RAM machine. The solution can be definitely improved due to the current limits of machine.
 
 In the late 90's, Yann LeCun's team pioneered the successful application of machine learning to optical character recognition. 25 years later, machine learning continues to be an invaluable tool for text processing downstream from the OCR process.
 
