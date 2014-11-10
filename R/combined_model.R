@@ -40,9 +40,17 @@ y33_0.99_id <- c()
 for (i in 1:length(y33_0.99$id_label)){
     y33_0.99_id <- c(y33_0.99_id, strsplit(as.character(y33_0.99$id_label[i]),'_')[[1]][1])
 }
+length(y33_0.99_id)
 
 for (i in 1:length(y33_0.99_id)){
     new_pred[grep(y33_0.99_id[i], new_pred$id_label),2] <- 0    
+}
+
+index <- c()
+for (i in 1:length(y33_0.99_id)){
+    for(j in 1:22){
+        index <- c(index,paste(y33_0.99_id[i], '_y', j, sep = ''))      
+    }
 }
 
 new_pred[y33_0.99,2] <- 1
