@@ -7,4 +7,4 @@ Tradeshift has created a dataset with thousands of documents, representing milli
 
 In this competition, participants are asked to create and open source an algorithm that correctly predicts the probability that a piece of text belongs to a given class.
 
-ps. This solution is based on an 8GB RAM machine. Due to the current limits of machine, the solution can definitely be improved further. 
+<b>ps. This solution is based on an 8GB RAM machine. Due to the current limits of machine, the solution can definitely be improved further. </b>
