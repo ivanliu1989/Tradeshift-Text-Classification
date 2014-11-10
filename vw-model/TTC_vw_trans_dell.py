@@ -25,7 +25,7 @@ loc_preds_prefix = "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Trad
 
 # Will be created
 loc_test_vw = "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/test.vw"
-loc_train_vw = "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/train_y33.vw"
+loc_train_vw = "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/train_y10.vw"
 loc_train_vw_temp = "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/train_yn_temp.vw" # used for relabelling
 
 loc_kaggle_submission = "C:/Users/Ivan.Liuyanfeng/Desktop/Data_Mining_Work_Space/Tradeshift-Text-Classification/preds/submission_D22_L011_y33_y6_y12_y7.csv"
@@ -128,7 +128,7 @@ if __name__ == "__main__":
   print(np.sum(y, axis=0))
   
   #Create train set for label y33, and a test set with dummy labels
-  to_vw(loc_train, loc_train_vw, y, y_nr=33, train=True)
+  to_vw(loc_train, loc_train_vw, y, y_nr=10, train=True)
   to_vw(loc_test, loc_test_vw, y, train=False)
   
   #Train and test VW now
