@@ -8,3 +8,10 @@ Tradeshift has created a dataset with thousands of documents, representing milli
 In this competition, participants are asked to create and open source an algorithm that correctly predicts the probability that a piece of text belongs to a given class.
 
 <b>ps. This solution is based on an 8GB RAM machine. Due to the limits of machine, the solution can definitely be improved further. </b>
+
+### What I've learnt from this competition ###
+1. Ensemble models are really powerful and easy ways to win the price.
+2. XGBoost is a efficient and powerful tool in gradient boosting.
+3. Online algorithms such as Vowpal Wabbit are helpful in dealing with large data set. 
+4. Feature engineering like interaction, one-hotted and hash can help improve classifiers a lot. 
+5. Next challenge, VAZU-CTR, would be another perfect competition to implement all tips above. 
