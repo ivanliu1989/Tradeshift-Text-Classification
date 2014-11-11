@@ -12,7 +12,7 @@ In this competition, participants are asked to create and open source an algorit
 ### What I've learnt from this competition ###
 1. Ensemble models are really powerful and easy ways to win the price.
 2. XGBoost is an efficient and powerful tool in gradient boosting.
-3. Online algorithms such as Vowpal Wabbit can passby the limits of machine to some extent and they are good at dealing with large data set. 
+3. Online algorithms such as Vowpal Wabbit can bypass the limits of machine to some extent and they are good at dealing with large data set. 
 4. Feature engineering like interaction, one-hotted and hash are necessary before training models.
 5. Eyeballing sometimes are useful and may bring you superises and save your time.
 6. RAM plays key role in such competition (categorical features, hash), 16GB seems to be minimum requirements to achieve top 10% on leaderboard. 
