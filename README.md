@@ -14,5 +14,5 @@ In this competition, participants are asked to create and open source an algorit
 2. XGBoost is an efficient and powerful tool in gradient boosting.
 3. Online algorithms such as Vowpal Wabbit can passby the limits of machine to some extent and they are good at dealing with large data set. 
 4. Feature engineering like interaction, one-hotted and hash are necessary before training models. 
-5. RAM plays key role in such competition (categorical features, hash), 16GB seems to be minimum requirements to achieve top 10% in the leaderboard. 
+5. RAM plays key role in such competition (categorical features, hash), 16GB seems to be minimum requirements to achieve top 10% on leaderboard. 
 6. Next challenge, VAZU-CTR, would be another perfect competition to implement all tips above. 
