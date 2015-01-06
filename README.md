@@ -9,11 +9,10 @@ In this competition, participants are asked to create and open source an algorit
 
 <b>ps. This solution is based on an 8GB RAM machine. Due to the limits of machine, the solution can definitely be improved further. </b>
 
-### What I've learnt from this competition ###
+### What I've learnt from this competiion ###
 1. Ensemble models are really powerful and easy ways to win the price.
 2. XGBoost is an efficient and powerful tool in gradient boosting.
 3. Online algorithms such as Vowpal Wabbit can bypass the limits of machine to some extent and they are good at dealing with large data set. 
-4. Feature engineering like interaction, one-hotted and hash are necessary before training models.
+4. Feature engineering like interaction, one-hot encoding and hash trick are necessary before training categorical models.
 5. Eyeballing on features and data set sometimes are useful and may bring you superises and save your time.
-6. RAM plays key role during the modelling (categorical features, hash), 16GB seems to be a minimum requirement to achieve top 10% on leaderboard. 
-7. Next challenge, VAZU-CTR, would be another wonderful competition to implement all tips above. 
+6. RAM plays key role during the modelling (categorical features, hash), 16GB seems to be a minimum requirement to achieve top 10% on leaderboard.  
